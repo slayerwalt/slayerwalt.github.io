@@ -1,8 +1,7 @@
 ---
-date : 2026-02-28
-draft : false
-title : '使用 Hugo + GitHub Pages + GitHub Actions 搭建博客'
-tags : ['Hugo', 'GitHub Pages', 'Blog']
+title: 使用 Hugo + GitHub Pages + GitHub Actions 搭建博客
+date: 2026-02-27
+tags: ["Blog", "Hugo", "GitHub"]
 ---
 
 本文简单记录使用 Hugo 静态站点生成器搭建个人博客，并通过 GitHub Actions 自动部署到 GitHub Pages 的过程。
