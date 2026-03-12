@@ -4,6 +4,8 @@ date: 2026-02-27
 tags: ["Blog", "Hugo", "GitHub"]
 ---
 
+> 以下内容均由 AI 生成，仅供参考。
+
 本文简单记录使用 Hugo 静态站点生成器搭建个人博客，并通过 GitHub Actions 自动部署到 GitHub Pages 的过程。
 
 ## 环境准备

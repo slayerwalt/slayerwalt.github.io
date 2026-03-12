@@ -1,5 +1,6 @@
 baseurl = "https://slayerwalt.github.io/"
 DefaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
 title = "Slayer's Blog"
 # Using theme as git submodule
 theme = "beautifulhugo"
