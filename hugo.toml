@@ -15,7 +15,7 @@ title = "Slayer's Blog"
 # Hostname (and path) to the root
 baseURL = "https://slayerwalt.github.io/"
 # theme list
-# theme = ["FixIt"] # enable in your site config file
+theme = ["FixIt"]
 # determines default content language ["en", "zh-cn", "fr", "pl", ...]
 defaultContentLanguage = "zh-cn"
 # language code ["en", "zh-CN", "fr", "pl", ...]
@@ -1071,7 +1071,7 @@ color = "blue"
 # All available themes:
 # ["barber-shop", "big-counter", "bounce", "center-atom", "center-circle", "center-radar", "center-simple",
 # "corner-indicator", "fill-left", "flash", "flat-top", "loading-bar", "mac-osx", "material", "minimal"]
-theme = "minimal"
+# theme = "minimal"
 
 # FixIt 0.3.17 | NEW PostChat AI config
 # Based on your posts to build a knowledge base, support AI summary, AI search, and AI Chatbot.
