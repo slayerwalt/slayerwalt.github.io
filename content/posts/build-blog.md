@@ -1,16 +1,20 @@
 ---
-title: 使用 Hugo + GitHub Pages + GitHub Actions 搭建博客
-date: 2026-02-27
-tags: ["Blog", "Hugo", "GitHub"]
+title: 使用 Hugo + FixIt + GitHub Pages + GitHub Actions 搭建博客
+date: 2026-03-19
+tags:
+- github
+categories:
+- blog
+featuredimage: img/cover_688471.png
 ---
 
 > 以下内容均由 AI 生成，仅供参考。
 
-本文简单记录使用 Hugo 静态站点生成器搭建个人博客，并通过 GitHub Actions 自动部署到 GitHub Pages 的过程。
+本文简单记录使用 Hugo 静态站点生成器搭建个人博客，并通过 GitHub Actions 自动部署到 GitHub Pages 的过程。主题使用 [FixIt](https://github.com/hugo-fixit/FixIt)。
 
 ## 环境准备
 
-- 安装 [Hugo](https://gohugo.io/installation/)（本站使用 v0.157.0）
+- 安装 [Hugo Extended](https://gohugo.io/installation/)（本站使用 v0.158.0）——FixIt 主题使用 SCSS，必须是 Extended 版本
 - 安装 [Git](https://git-scm.com/)
 - 一个 GitHub 账号
 
@@ -24,56 +28,81 @@ git init
 
 ## 安装主题
 
-这里使用 [Beautiful Hugo](https://github.com/halogenica/beautifulhugo) 主题，通过 Git Submodule 方式引入：
+使用 [FixIt](https://github.com/hugo-fixit/FixIt) 主题，通过 Git Submodule 方式引入：
 
 ```bash
-git submodule add https://github.com/halogenica/beautifulhugo.git themes/beautifulhugo
+git submodule add https://github.com/hugo-fixit/FixIt.git themes/FixIt
 ```
 
-主题自带了一个 `exampleSite` 目录，可以将其内容复制到项目根目录作为起步模板：
+## 配置站点
 
-```bash
-cp -r themes/beautifulhugo/exampleSite/* .
-```
-
-然后在 `hugo.toml` 中确认主题配置：
+在 `hugo.toml` 中进行基础配置：
 
 ```toml
-theme = "beautifulhugo"
-```
+baseURL = "https://<username>.github.io/"
+defaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
+title = "My Blog"
+theme = "FixIt"
 
-其他需要自定义的配置项包括 `title`、`subtitle`、`[Params.author]` 中的个人信息、`[[menu.main]]` 导航菜单等，按需修改即可。
+[params]
+  version = "0.3.X"
+  description = "我的个人博客"
+  defaultTheme = "auto"
+
+  [params.home.profile]
+    enable = true
+    avatarURL = "/img/avatar.jpg"
+    title = "用户名"
+    subtitle = "博客简介"
+    social = true
+
+  [params.social]
+    GitHub = "<username>"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "博客"
+    url = "/posts/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 2
+```
 
 本地预览：
 
 ```bash
-hugo serve
+hugo server --buildDrafts
 ```
 
 浏览器访问 `http://localhost:1313/` 即可看到效果。
 
 ## 编写文章
 
-在 `content/post/` 目录下创建 Markdown 文件：
+在 `content/posts/` 目录下创建 Markdown 文件：
 
 ```bash
-hugo new content/post/my-first-post.md
+hugo new content/posts/my-first-post.md
 ```
 
 文件开头的 front matter 控制标题、日期、标签等元信息：
 
 ```markdown
-+++
-date = '2026-02-28'
-draft = false
-title = 'My First Post'
-tags = ['tag1', 'tag2']
-+++
+---
+title: '文章标题'
+date: '2026-02-28'
+draft: false
+tags: ['tag1', 'tag2']
+---
 
-Your content here...
+正文内容...
 ```
 
-> 注意：`draft = true` 的文章在正式构建时不会发布，写好后记得改为 `false`。
+> 注意：`draft: true` 的文章在正式构建时不会发布，写好后记得改为 `false`。
 
 ## 部署到 GitHub Pages
 
@@ -106,7 +135,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.157.0
+      HUGO_VERSION: 0.158.0
     steps:
       - name: Install Hugo CLI
         run: |
@@ -123,6 +152,7 @@ jobs:
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
+          TZ: Asia/Shanghai
         run: |
           hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Upload artifact
@@ -144,6 +174,7 @@ jobs:
 
 关键点：
 
+- `hugo_extended_${HUGO_VERSION}` 必须使用 extended 版本，否则 FixIt 的 SCSS 无法编译
 - `submodules: recursive` 确保 CI 环境能拉取主题子模块
 - `HUGO_VERSION` 建议与本地版本保持一致
 
