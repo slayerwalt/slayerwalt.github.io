@@ -10,7 +10,6 @@ categories:
 - paper
 collections:
 - DCVC系列
-featuredimage: img/cover_827892.png
 ---
 
 ## 引言

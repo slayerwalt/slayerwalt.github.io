@@ -35,7 +35,7 @@ enableEmoji = true
 # the main sections of a site
 # if set, the MainSections method on the Site object returns the given sections,
 # otherwise it returns the section with the most pages.
-# mainSections = ["posts"]
+mainSections = ["posts"]
 
 # -------------------------------------------------------------------------------------
 # Front Matter Configuration
@@ -708,13 +708,13 @@ orderby = "name" # Order of tags, optional values: ["name", "count"]
 
 # Home page profile
 [params.home.profile]
-enable = false
+enable = true
 # FixIt 0.4.0 | NEW Whether to show profile and content only in the first home page
 onlyFirstPage = false
 # Gravatar Email for preferred avatar in home page
 gravatarEmail = ""
 # URL of avatar shown in home page, default is author's avatar
-avatarURL = ""
+avatarURL = "favicon.svg"
 # FixIt 0.2.17 | NEW identifier of avatar menu link
 avatarMenu = ""
 # title shown in home page (HTML format is supported)
