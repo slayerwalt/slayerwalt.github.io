@@ -93,21 +93,21 @@ type = ""
 # FixIt 0.3.9 | NEW whether to show the submenu item divider line
 divided = false
 
-[[menu.main]]
-identifier = "posts"
-name = "博客"
-url = "/posts/"
+[[menus.main]]
+identifier = "home"
+name = "主页"
+url = "/"
 weight = 1
 
-[menu.main.params]
-icon = "fa-solid fa-archive"
+[menus.main.params]
+icon = "fa-solid fa-home"
 
 [[menus.main]]
 identifier = "categories"
 parent = ""
 pre = ""
 post = ""
-name = "Categories"
+name = "分类"
 url = "/categories/"
 title = ""
 weight = 2
@@ -129,14 +129,14 @@ weight = 3
 icon = "fa-solid fa-tags"
 
 
-[[menu.main]]
+[[menus.main]]
 identifier = "about"
 name = "关于"
 url = "/about/"
 weight = 4
 
 
-[menu.main.params]
+[menus.main.params]
 icon = "fa-solid fa-user-circle"
 
 # -------------------------------------------------------------------------------------
@@ -1031,7 +1031,7 @@ objectFit = false
 # FixIt 0.2.14 | NEW GitHub banner in the top-right or top-left corner
 [params.githubCorner]
 enable = true
-permalink = "https://slayerwalt.github.io/"
+permalink = "https://github.com/slayerwalt/slayerwalt.github.io"
 title = "View source on GitHub"
 position = "right" # ["left", "right"]
 
