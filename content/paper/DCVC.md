@@ -158,17 +158,17 @@ DCVC 在所有数据集上均超越 x265，而 DVCPro 在 HEVC Class C 和 E 上
 
 PSNR-Rate 曲线：
 
-![PSNR 码率曲线](/assets/DCVC/rd_curve_psnr-1.png)
+![PSNR 码率曲线](/assets/DCVC/rd_curve_psnr-1.webp)
 
 MS-SSIM-Rate 曲线：
 
-![MS-SSIM 码率曲线](/assets/DCVC/rd_curve_msssim-1.png)
+![MS-SSIM 码率曲线](/assets/DCVC/rd_curve_msssim-1.webp)
 
 ### 视觉质量对比
 
 DCVC 在视觉质量上也明显优于 DVCPro。例如在篮球运动场景中，DVCPro 重建的图像存在明显的颜色失真和异常纹理，而 DCVC 能够产生更清晰的条纹纹理。
 
-![视觉对比示例](/assets/DCVC/visual_example-1.png)
+![视觉对比示例](/assets/DCVC/visual_example-1.webp)
 
 ### 计算复杂度
 

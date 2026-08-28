@@ -132,7 +132,7 @@ DCVC-DC 在所有数据集上均显著优于 VTM-17.0，平均码率节省 17.8%
 
 在 MS-SSIM 指标上，DCVC-DC 表现更加出色，平均码率节省达 47.6%，而 ECM 仅为 10.4%。
 
-![码率失真曲线](/assets/DCVC-DC/rd_curve-1.png)
+![码率失真曲线](/assets/DCVC-DC/rd_curve-1.webp)
 
 ### YUV420 色彩空间性能
 
