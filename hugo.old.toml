@@ -1,0 +1,236 @@
+baseURL = "https://slayerwalt.github.io/"
+defaultContentLanguage = "zh-cn"
+languageCode = "zh-CN"
+languageName = "简体中文"
+hasCJKLanguage = true
+title = "Slayer's Blog"
+theme = "FixIt"
+enableRobotsTXT = true
+enableGitInfo = true
+enableEmoji = true
+
+[params]
+  version = "0.3.X"
+  description = "分享深度学习、摄影和其他一些事情"
+  keywords = ["Blog", "Deep Learning", "Photography"]
+  defaultTheme = "auto"
+  dateFormat = "2006-01-02"
+  images = ["/img/avatar.jpg"]
+  
+  # 应用图标配置
+  [params.app]
+    name = ""
+    shortName = ""
+    noFavicon = false
+    svgFavicon = ""
+    iconColor = "#5bbad5"
+    tileColor = "#da532c"
+
+  # 客户端搜索（fuse.js）
+  [params.search]
+    enable = false
+    type = "fuse"
+    contentLength = 4000
+    placeholder = ""
+    maxResultLength = 10
+    snippetLength = 30
+    highlightTag = "em"
+    absoluteURL = false
+
+  [params.search.algolia]
+    index = ""
+    appID = ""
+    searchKey = ""
+
+  [params.search.fuse]
+    isCaseSensitive = false
+    minMatchCharLength = 2
+    findAllMatches = false
+    location = 0
+    threshold = 0.3
+    distance = 100
+    ignoreLocation = false
+    useExtendedSearch = false
+    ignoreFieldNorm = false
+  
+  # 导航栏设置
+  [params.header]
+    desktopMode = "sticky"
+    mobileMode = "auto"
+    [params.header.title]
+      name = "Slayer's Blog"
+      typeit = true
+
+  [params.footer]
+    enable = true
+    copyright = true
+    author = true
+    since = "2025"
+    [params.footer.powered]
+      enable = true
+      hugoLogo = true
+      themeLogo = true
+    [params.footer.order]
+      powered = 0
+      copyright = 0
+      statistics = 0
+      visitor = 0
+      beian = 0
+      
+  [params.home]
+    rss = 10
+    [params.home.profile]
+      enable = true
+      avatarURL = "/img/avatar.jpg"
+      title = "slayerwalt"
+      subtitle = "分享深度学习、摄影和其他一些事情"
+      typeit = false
+      social = true
+    [params.home.posts]
+      enable = true
+      paginate = 6
+
+  [params.author]
+    name = "slayerwalt"
+    link = "https://slayerwalt.cn"
+    avatar = "/img/avatar.jpg"
+    email = "slayerwalt0603@outlook.com"
+
+  [params.social]
+    GitHub = "slayerwalt"
+
+  [params.page]
+    [params.page.toc]
+      enable = true
+      keepStatic = false
+      auto = true
+      position = "right"
+    [params.page.comment]
+      enable = false
+    [params.page.share]
+      enable = false
+
+  [params.seo]
+    image = "/img/avatar.jpg"
+
+  [params.codeblock]
+    wrapper = true
+    mode = "classic"
+    maxShownLines = 50
+    copyable = true
+    downloadable = false
+    fullscreen = false
+    lineNosToggler = true
+    lineWrapToggler = true
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "博客"
+    url = "/posts/"
+    weight = 1
+    [menu.main.params]
+      icon = "fa-solid fa-archive"
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 2
+    [menu.main.params]
+      icon = "fa-solid fa-tags"
+  [[menu.main]]
+    identifier = "about"
+    name = "关于"
+    url = "/about/"
+    weight = 3
+    [menu.main.params]
+      icon = "fa-solid fa-user-circle"
+
+[markup]
+  _merge = "shallow"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
+
+[outputs]
+  _merge = "shallow"
+  home = [
+    "html",
+    "rss",
+    "archives",
+    "offline",
+    "search"
+  ]
+  page = [
+    "html",
+    "markdown"
+  ]
+  section = [
+    "html",
+    "rss"
+  ]
+  taxonomy = [ "html" ]
+  term = [
+    "html",
+    "rss"
+  ]
+
+[taxonomies]
+_merge = "shallow"
+
+[mediaTypes]
+
+[mediaTypes."text/markdown"]
+suffixes = [ "md" ]
+
+[outputFormats]
+
+#  用于输出 /archives/index.html 文件的设置
+[outputFormats.archives]
+path = "archives"
+baseName = "index"
+mediaType = "text/html"
+isPlainText = false
+isHTML = true
+permalinkable = true
+
+#  用于输出 /offline/index.html 文件的设置
+[outputFormats.offline]
+path = "offline"
+baseName = "index"
+mediaType = "text/html"
+isPlainText = false
+isHTML = true
+permalinkable = true
+
+#  用于输出 readme.md 文件的设置
+[outputFormats.readme]
+baseName = "readme"
+mediaType = "text/markdown"
+isPlainText = true
+isHTML = false
+
+#  用于输出 baidu_urls.txt 文件的设置
+[outputFormats.baidu_urls]
+baseName = "baidu_urls"
+mediaType = "text/plain"
+isPlainText = true
+isHTML = false
+
+#  用于输出 search.json 文件的设置
+[outputFormats.search]
+baseName = "search"
+mediaType = "application/json"
+rel = "search"
+isPlainText = true
+isHTML = false
+permalinkable = true
