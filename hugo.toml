@@ -507,9 +507,9 @@ title = "Slayer's Blog"
 # whether to omit favicon resource links
 noFavicon = false
 # modern SVG favicon to use in place of older style .png and .ico files
-svgFavicon = ""
-# Safari mask icon color
-iconColor = "#5bbad5"
+svgFavicon = "/favicon.svg"
+# 未提供 Safari 固定标签专用图标，留空以停用其引用
+iconColor = ""
 # Windows v8-10 tile color
 tileColor = "#da532c"
 
